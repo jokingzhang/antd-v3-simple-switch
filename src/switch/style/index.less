@@ -1,17 +1,51 @@
-@import '../../style/index.less';
 @import '~antd/es/style/themes/default.less';
-@dantd-switch-prefix-cls: ~'@{dantd-prefix}-switch';
-@dantd-switch-height: 28px;
-@dantd-switch-width: 70px;
-@dantd-switch-line-height: 11.5px;
-@dantd-switch-font-size: 30px;
-// small
-@dantd-switch-small-height: 12px;
-@dantd-switch-small-width: 20px;
-@dantd-switch-small-line-height: 11.5px;
-@dantd-switch-small-font-size: 30px;
 
-.@{dantd-switch-prefix-cls} {
+.clearfix() {
+  zoom: 1;
+  &::before,
+  &::after {
+    display: table;
+    width: 100%;
+    content: '';
+  }
+  &::after {
+    clear: both;
+  }
+}
+
+.reset-space {
+  margin: 0; 
+  padding: 0; 
+}
+
+.reset-space-border {
+  margin: 0; 
+  padding: 0; 
+  border: 0;
+}
+
+.hide-fake {
+  width: 0;
+  height: 0;
+  position: absolute;
+  top: -9999px;
+  right: -9999px;
+  overflow: hidden;
+  display: none;
+}
+
+@switch-prefix-cls: ~'antdv3-switch';
+@switch-height: 28px;
+@switch-width: 70px;
+@switch-line-height: 11.5px;
+@switch-font-size: 30px;
+// small
+@switch-small-height: 12px;
+@switch-small-width: 20px;
+@switch-small-line-height: 11.5px;
+@switch-small-font-size: 30px;
+
+.@{switch-prefix-cls} {
   position: relative;
   display: inline-flex;
   .clearfix;
@@ -55,8 +89,8 @@
         position: relative;
         user-select: none;
         display: inline-flex;
-        width: @dantd-switch-width;
-        height: @dantd-switch-height;
+        width: @switch-width;
+        height: @switch-height;
         border-radius: 20px;
         background: @primary-7;
         transition: transform 0.3s ease-in-out;
@@ -64,10 +98,10 @@
       }
   
       &:checked + label {
-        .@{dantd-switch-prefix-cls}-right-content {
+        .@{switch-prefix-cls}-right-content {
           transform: translate3d(35px, 0, 0);
         }
-        .@{dantd-switch-prefix-cls}-left-content {
+        .@{switch-prefix-cls}-left-content {
           transform: translate3d(-31px, 0, 0);
         }
       }
@@ -80,18 +114,18 @@
   
       & + label {
         user-select: none;
-        line-height: @dantd-switch-small-height;
+        line-height: @switch-small-height;
              
         &:before {
           content: '•';
-          width: @dantd-switch-small-width;
-          height: @dantd-switch-small-height;
+          width: @switch-small-width;
+          height: @switch-small-height;
           font-family: Arial, sans-serif;
           display: inline-block;
           transition: all 0.5s ease-in-out;
           text-align: left;
-          font-size: @dantd-switch-small-font-size;
-          line-height: @dantd-switch-small-line-height;
+          font-size: @switch-small-font-size;
+          line-height: @switch-small-line-height;
           overflow: hidden;
           color: #fff;
           border: 1px solid #fff;
@@ -121,7 +155,7 @@
       }
     }
 
-    &.@{dantd-switch-prefix-cls}-default {
+    &.@{switch-prefix-cls}-default {
       input[type="checkbox"] {
         & + label {
           cursor: no-drop;
@@ -133,11 +167,11 @@
         }
       }
     }
-    .@{dantd-switch-prefix-cls}-right-content {
+    .@{switch-prefix-cls}-right-content {
       cursor: no-drop;
       color: #ccc;
     }
-    .@{dantd-switch-prefix-cls}-left-content {
+    .@{switch-prefix-cls}-left-content {
       cursor: no-drop;
     }
   }

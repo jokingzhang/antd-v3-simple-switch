@@ -1,6 +1,13 @@
 import React, { useState, useEffect } from 'react';
 import classNames from 'classnames';
-import { uuidv4 } from '../utils';
+
+export function uuidv4() {
+  return 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function(c) {
+    var r = (Math.random() * 16) | 0,
+      v = c === 'x' ? r : (r & 0x3) | 0x8;
+    return v.toString(16);
+  });
+}
 
 export type SwitchSize = 'small' | 'default';
 export type SwitchChangeEventHandler = (checked: boolean, event: MouseEvent) => void;
@@ -24,7 +31,7 @@ export interface ISwitchProps {
 }
 
 function Switch(props: ISwitchProps) {
-  const prefixCls = `${props.prefixCls || 'dantd'}-switch`;
+  const prefixCls = `${props.prefixCls || 'antdv3'}-switch`;
 
   const switchClassName = classNames(
     prefixCls,
@@ -39,7 +46,7 @@ function Switch(props: ISwitchProps) {
   const switchStyle = {
     ...props.style,
   };
-  const id = props.id || `dantd-switch-${uuidv4()}`;
+  const id = props.id || `antdv3-switch-${uuidv4()}`;
   let checked = false;
   if ('checked' in props) {
     checked = !!props.checked;
