@@ -5,7 +5,7 @@ export default
     esm: 'babel',
     cjs: 'babel',
     umd: {
-      name: 'dantd',
+      name: 'switch',
       sourcemap: true,
       globals: {
         react: 'React',
